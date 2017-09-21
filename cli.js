@@ -2,27 +2,14 @@
 const path = require('path');
 const isDev = process.argv.find ((item) => item === '-l');
 
-let localPkg = path.join (process.cwd(), 'node_modules', 'fit-core');
-let devPkg = path.join (process.cwd(), '..', 'fit-core');
-let fit;
+let	fit = isDev ?
+	path.join (process.cwd(), '..', 'fit-core') :
+	path.join (process.cwd(), 'node_modules', 'fit-core');
 
 try {
-	require.resolve (localPkg);
-	fit = isDev ? devPkg : localPkg;
-}
-catch (e) {
-	try {
-		require.resolve (globalPkg);
-		fit = globalPkg;
-	}
-	catch (e) {
-		console.log('CAN NOT RUN');
-		console.log('Make sure you install '+ (isDev ? 'Dev' : 'Local') +' \'fit-core\'.');
-	}
-}
+	require.resolve (fit);
 
-if (fit) {
-	const core = require(fit);
+	let core = require(fit);
 
 	core.config.init()
 		.then(() => {
@@ -34,4 +21,8 @@ if (fit) {
 		.catch((e) => {
 			console.log(e);
 		});
+}
+catch (e) {
+	console.log('CAN NOT RUN');
+	console.log('Make sure you install '+ (isDev ? 'Dev' : 'Local') +' \''+ fit +'\'.');
 }
