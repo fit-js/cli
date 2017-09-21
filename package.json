@@ -1,0 +1,19 @@
+{
+  "name": "fit-cli",
+  "description": "CLI for Fit",
+  "version": "0.1.0",
+  "bin": {
+    "fit": "cli.js"
+  },
+  "preferGlobal": "true",
+  "main": "cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fit-js/cli.git"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "thfrlw",
+    "email": "fitjs@icloud.com"
+  }
+}
