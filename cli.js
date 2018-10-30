@@ -4,7 +4,7 @@ const isDev = process.argv.find ((item) => item === '-l');
 
 let	fit = isDev ?
 	path.join (process.cwd(), '..', 'fit-core') :
-	path.join (process.cwd(), 'node_modules', 'fit-js', 'node_modules', 'fit-core');
+	path.join (process.cwd(), 'node_modules', 'fit-core');
 
 try {
 	require.resolve (fit);
