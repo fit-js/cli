@@ -1,11 +1,11 @@
 {
   "name": "fit-cli",
   "description": "CLI for Fit",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "bin": {
     "fit": "cli.js"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "main": "cli.js",
   "repository": {
     "type": "git",
